@@ -21,9 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -170,151 +171,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-clr_keras_utils">
-<span id="clr-keras-utils-module"></span><h1>clr_keras_utils module<a class="headerlink" href="#module-clr_keras_utils" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="clr_keras_utils.CyclicLR">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">clr_keras_utils.</span></code><code class="sig-name descname"><span class="pre">CyclicLR</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.006</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'triangular'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cycle'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#CyclicLR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.CyclicLR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.callbacks.callbacks.Callback</span></code></p>
-<p>This callback implements a cyclical learning rate policy (CLR).
-The method cycles the learning rate between two boundaries with
-some constant frequency.
-# Arguments</p>
-<blockquote>
-<div><dl class="simple">
-<dt>base_lr: initial learning rate which is the</dt><dd><p>lower boundary in the cycle.</p>
-</dd>
-<dt>max_lr: upper boundary in the cycle. Functionally,</dt><dd><p>it defines the cycle amplitude (max_lr - base_lr).
-The lr at any cycle is the sum of base_lr
-and some scaling of the amplitude; therefore
-max_lr may not actually be reached depending on
-scaling function.</p>
-</dd>
-<dt>step_size: number of training iterations per</dt><dd><p>half cycle. Authors suggest setting step_size
-2-8 x training iterations in epoch.</p>
-</dd>
-<dt>mode: one of {triangular, triangular2, exp_range}.</dt><dd><p>Default ‘triangular’.
-Values correspond to policies detailed above.
-If scale_fn is not None, this argument is ignored.</p>
-</dd>
-<dt>gamma: constant in ‘exp_range’ scaling function:</dt><dd><p>gamma**(cycle iterations)</p>
-</dd>
-<dt>scale_fn: Custom scaling policy defined by a single</dt><dd><p>argument lambda function, where
-0 &lt;= scale_fn(x) &lt;= 1 for all x &gt;= 0.
-mode paramater is ignored</p>
-</dd>
-<dt>scale_mode: {‘cycle’, ‘iterations’}.</dt><dd><p>Defines whether scale_fn is evaluated on
-cycle number or cycle iterations (training
-iterations since start of cycle). Default is ‘cycle’.</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>The amplitude of the cycle can be scaled on a per-iteration or
-per-cycle basis.
-This class has three built-in policies, as put forth in the paper.
-“triangular”:</p>
-<blockquote>
-<div><p>A basic triangular cycle w/ no amplitude scaling.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>“triangular2”:</dt><dd><p>A basic triangular cycle that scales initial amplitude by half each cycle.</p>
-</dd>
-<dt>“exp_range”:</dt><dd><p>A cycle that scales initial amplitude by gamma**(cycle iterations) at each
-cycle iteration.</p>
-</dd>
-</dl>
-<p>For more detail, please see paper.</p>
-<dl>
-<dt># Example for CIFAR-10 w/ batch size 100:</dt><dd><dl>
-<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python</dt><dd><dl class="simple">
-<dt>clr = CyclicLR(base_lr=0.001, max_lr=0.006,</dt><dd><p>step_size=2000., mode=’triangular’)</p>
-</dd>
-</dl>
-<p>model.fit(X_train, Y_train, callbacks=[clr])</p>
-</dd>
-</dl>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
-</dd>
-<dt>Class also supports custom scaling functions:</dt><dd><dl>
-<dt><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python</dt><dd><p>clr_fn = lambda x: 0.5*(1+np.sin(x*np.pi/2.))
-clr = CyclicLR(base_lr=0.001, max_lr=0.006,</p>
-<blockquote>
-<div><p>step_size=2000., scale_fn=clr_fn,
-scale_mode=’cycle’)</p>
-</div></blockquote>
-<p>model.fit(X_train, Y_train, callbacks=[clr])</p>
-</dd>
-</dl>
-<p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
-</dd>
-</dl>
-<p># References</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>[Cyclical Learning Rates for Training Neural Networks](</p></li>
-</ul>
-<p><a class="reference external" href="https://arxiv.org/abs/1506.01186">https://arxiv.org/abs/1506.01186</a>)</p>
-</div></blockquote>
-<dl class="py method">
-<dt id="clr_keras_utils.CyclicLR.clr">
-<code class="sig-name descname"><span class="pre">clr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#CyclicLR.clr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.CyclicLR.clr" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="clr_keras_utils.CyclicLR.on_batch_end">
-<code class="sig-name descname"><span class="pre">on_batch_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#CyclicLR.on_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.CyclicLR.on_batch_end" title="Permalink to this definition">¶</a></dt>
-<dd><p>A backwards compatibility alias for <cite>on_train_batch_end</cite>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="clr_keras_utils.CyclicLR.on_epoch_end">
-<code class="sig-name descname"><span class="pre">on_epoch_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#CyclicLR.on_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.CyclicLR.on_epoch_end" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called at the end of an epoch.</p>
-<p>Subclasses should override for any actions to run. This function should only
-be called during train mode.</p>
-<dl>
-<dt># Arguments</dt><dd><p>epoch: integer, index of epoch.
-logs: dict, metric results for this training epoch, and for the</p>
-<blockquote>
-<div><p>validation epoch if validation is performed. Validation result keys
-are prefixed with <cite>val_</cite>.</p>
-</div></blockquote>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="clr_keras_utils.CyclicLR.on_train_begin">
-<code class="sig-name descname"><span class="pre">on_train_begin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#CyclicLR.on_train_begin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.CyclicLR.on_train_begin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called at the beginning of training.</p>
-<p>Subclasses should override for any actions to run.</p>
-<dl class="simple">
-<dt># Arguments</dt><dd><dl class="simple">
-<dt>logs: dict, currently no data is passed to this argument for this method</dt><dd><p>but that may change in the future.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="clr_keras_utils.clr_callback">
-<code class="sig-prename descclassname"><span class="pre">clr_keras_utils.</span></code><code class="sig-name descname"><span class="pre">clr_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.999994</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#clr_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.clr_callback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates keras callback for cyclical learning rate.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="clr_keras_utils.clr_check_args">
-<code class="sig-prename descclassname"><span class="pre">clr_keras_utils.</span></code><code class="sig-name descname"><span class="pre">clr_check_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#clr_check_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.clr_check_args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="clr_keras_utils.clr_set_args">
-<code class="sig-prename descclassname"><span class="pre">clr_keras_utils.</span></code><code class="sig-name descname"><span class="pre">clr_set_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clr_keras_utils.html#clr_set_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clr_keras_utils.clr_set_args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="clr-keras-utils-module">
+<h1>clr_keras_utils module<a class="headerlink" href="#clr-keras-utils-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

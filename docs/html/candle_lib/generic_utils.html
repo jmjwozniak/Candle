@@ -21,9 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -172,18 +173,18 @@
             
   <div class="section" id="module-generic_utils">
 <span id="generic-utils-module"></span><h1>generic_utils module<a class="headerlink" href="#module-generic_utils" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<dl class="class">
 <dt id="generic_utils.Progbar">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">Progbar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#Progbar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.Progbar" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">Progbar</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">width=30</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">interval=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#Progbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.Progbar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
+<dl class="method">
 <dt id="generic_utils.Progbar.add">
-<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#Progbar.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.Progbar.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">values=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#Progbar.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.Progbar.add" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="generic_utils.Progbar.update">
-<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#Progbar.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.Progbar.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">current</em>, <em class="sig-param">values=[]</em>, <em class="sig-param">force=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#Progbar.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.Progbar.update" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -197,37 +198,37 @@
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="generic_utils.display_table">
-<code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">display_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#display_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.display_table" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">display_table</code><span class="sig-paren">(</span><em class="sig-param">rows</em>, <em class="sig-param">positions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#display_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.display_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="generic_utils.func_dump">
-<code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">func_dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#func_dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.func_dump" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">func_dump</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#func_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.func_dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Serialize user defined function.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="generic_utils.func_load">
-<code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">func_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">closure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#func_load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.func_load" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">func_load</code><span class="sig-paren">(</span><em class="sig-param">code</em>, <em class="sig-param">defaults=None</em>, <em class="sig-param">closure=None</em>, <em class="sig-param">globs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#func_load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.func_load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deserialize user defined function.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="generic_utils.func_reconstruct_closure">
-<code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">func_reconstruct_closure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#func_reconstruct_closure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.func_reconstruct_closure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">func_reconstruct_closure</code><span class="sig-paren">(</span><em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#func_reconstruct_closure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.func_reconstruct_closure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deserialization helper that reconstructs a closure.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="generic_utils.get_from_module">
-<code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">get_from_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instantiate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#get_from_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.get_from_module" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">get_from_module</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">module_params</em>, <em class="sig-param">module_name</em>, <em class="sig-param">instantiate=False</em>, <em class="sig-param">kwargs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#get_from_module"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.get_from_module" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="generic_utils.make_tuple">
-<code class="sig-prename descclassname"><span class="pre">generic_utils.</span></code><code class="sig-name descname"><span class="pre">make_tuple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#make_tuple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#generic_utils.make_tuple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">generic_utils.</code><code class="sig-name descname">make_tuple</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/generic_utils.html#make_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#generic_utils.make_tuple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
